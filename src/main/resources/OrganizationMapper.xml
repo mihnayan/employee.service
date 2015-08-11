@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mihnayan.ito.employees.data.OrganizationMapper">
+    <resultMap type="mihnayan.ito.employees.model.Organization" id="organizationResultMap">
+        <result property="name" column="ou_name" />
+        <result property="typeName" column="type_name" />
+    </resultMap>
+    <select id="getOrganizations" resultMap="organizationResultMap">
+        select * from organization_units;
+    </select>
+</mapper>
