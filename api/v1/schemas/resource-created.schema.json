@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "success": {
+      "id": "success",
+      "type": "boolean"
+    },
+    "status": {
+      "id": "status",
+      "type": "integer"
+    },
+    "href": {
+      "id": "href",
+      "type": "string",
+      "description": "Reference to the new resource that was created"
+    },
+    "message": {
+      "id": "message",
+      "type": "string"
+    }
+  },
+  "required": [
+    "success",
+    "status",
+    "href"
+  ]
+}

@@ -1,0 +1,121 @@
+#%RAML 0.8
+---
+title: Employees API
+baseUri: http://localhost:8080/{version}
+version: v1
+mediaType: application/json
+traits:
+  - postResponse:
+      description: Описывает формат ответа на POST-запрос
+      responses:
+        200:
+          body:
+            application/json:
+              schema: !include schemas/resource-created.schema.json
+          headers:
+            location:
+              description: Путь к вновь созданному ресурсу
+              displayName: Location
+              required: true
+  - deleteResponse:
+      description: Описывает формат ответа на DELETE-запрос
+      responses:
+        200:
+          body:
+            application/json:
+              schema: !include schemas/resource-deleted.schema.json
+/OUTypes:
+  get:
+    description: Возвращает список типов подразделений
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/outypes-get.example.json
+  post:
+    description: Добавляет тип подразделения
+    body:
+      application/json:
+        schema: !include schemas/outype-post.schema.json
+        example: !include examples/outype-post.example.json
+    is: [postResponse]
+  /{uuid}:
+    get:
+      description: Возвращает конкретный тип подразделения
+      responses:
+        200:
+          body:
+            application/json:
+              schema: !include schemas/outype.schema.json
+              example: !include examples/outype-get.example.json
+    put:
+      description: Обновляет тип подразделения
+      body:
+        application/json:
+          schema: !include schemas/outype-post.schema.json
+          example: !include examples/outype-post.example.json
+    delete:
+      description: удаляет тип подразделения
+      is: [deleteResponse]
+/posts:
+  get:
+    description: Возвращает список должностей
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/posts-get.example.json
+  post:
+    description: Добавляет должность
+    body:
+      application/json:
+        schema: !include schemas/post-post.schema.json
+        example: !include examples/post-post.example.json
+    is: [postResponse]
+  /{uuid}:
+    get:
+      description: Возвращает конкретную должность
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/post-get.example.json
+    put:
+      description: Обновляет должность
+      body:
+        application/json:
+          schema: !include schemas/post-post.schema.json
+          example: !include examples/post-post.example.json
+    delete:
+      description: Удаляет должность
+      is: [deleteResponse]
+/ranks:
+  get:
+    description: Возвращает список рангов
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/ranks-get.example.json
+  post:
+    description: Добавляет новый ранг
+    body:
+      application/json:
+        example: !include examples/rank-post.example.json
+    is: [postResponse]
+  /{uuid}:
+    get:
+      description: Возвращает конкретный ранг
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/rank-get.example.json
+    put:
+      description: Обновляет ранг
+      body:
+        application/json:
+          example: !include examples/rank-post.example.json
+    delete:
+      description: Удаляет ранг
+      is: [deleteResponse]

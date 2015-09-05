@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "id": "uuid",
+      "type": "string"
+    },
+    "postName": {
+      "id": "postName",
+      "type": "string"
+    },
+    "shortName": {
+      "id": "shortName",
+      "type": "string"
+    }
+  },
+  "required": [
+    "uuid",
+    "postName"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "id": "uuid",
+      "type": "string"
+    },
+    "rankName": {
+      "id": "rankName",
+      "type": "string"
+    }
+  },
+  "required": [
+    "uuid",
+    "rankName"
+  ]
+}
