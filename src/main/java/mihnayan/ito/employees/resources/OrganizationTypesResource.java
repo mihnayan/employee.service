@@ -10,11 +10,10 @@ import javax.ws.rs.core.MediaType;
 import mihnayan.ito.employees.data.OrganizationTypesDAO;
 import mihnayan.ito.employees.model.OrganizationType;
 
-@Path("/")
+@Path("/OUTypes")
 public class OrganizationTypesResource {
 
 	@GET
-	@Path("/orgTypes")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<OrganizationType> getOrganizationTypes() {
 		return OrganizationTypesDAO.getOrganizationTypes();

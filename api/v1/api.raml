@@ -31,6 +31,7 @@ traits:
       200:
         body:
           application/json:
+            schema: !include schemas/outypes-get.schema.json
             example: !include examples/outypes-get.example.json
   post:
     description: Добавляет тип подразделения

@@ -7,15 +7,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class OrganizationType {
 
 	@XmlElement
-	private String name;
+	private String uuid;
+	
+	@XmlElement
+	private String typeName;
 	
 	public OrganizationType() {}
 	
-	public OrganizationType(String name) {
-		this.name = name;
+	public String getId() {
+		return uuid;
 	}
 	
 	public String getName() {
-		return name;
+		return typeName;
 	}
 }

@@ -1,5 +1,4 @@
 .*
 !/.gitignore
 /target/
-/documentation/
 src/main/resources/config.properties

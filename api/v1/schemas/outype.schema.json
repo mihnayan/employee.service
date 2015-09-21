@@ -1,14 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "/",
   "type": "object",
   "properties": {
     "uuid": {
-      "id": "uuid",
       "type": "string"
     },
     "typeName": {
-      "id": "typeName",
       "type": "string"
     }
   },
