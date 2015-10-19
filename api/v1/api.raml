@@ -1,32 +1,39 @@
 #%RAML 0.8
 ---
-title: Employees API
-baseUri: http://localhost:8080/{version}
+title: Employees
+baseUri: http://localhost:8080/employees-api/{version}
 version: v1
 mediaType: application/json
 traits:
   - postResponse:
-      description: Описывает формат ответа на POST-запрос
+      description: Describes the format of response to a POST request
       responses:
-        200:
+        201:
           body:
             application/json:
-              schema: !include schemas/resource-created.schema.json
+              schema: !include schemas/resource-operation.schema.json
           headers:
             location:
-              description: Путь к вновь созданному ресурсу
+              description: URL to the new resource that was created
               displayName: Location
               required: true
-  - deleteResponse:
-      description: Описывает формат ответа на DELETE-запрос
+  - putResponse:
+      description: Describes the format of response to a PUT request
       responses:
         200:
           body:
             application/json:
-              schema: !include schemas/resource-deleted.schema.json
+              schema: !include schemas/resource-operation.schema.json
+  - deleteResponse:
+      description: Describes the format of response to a DELETE request
+      responses:
+        200:
+          body:
+            application/json:
+              schema: !include schemas/resource-operation.schema.json
 /OUTypes:
   get:
-    description: Возвращает список типов подразделений
+    description: Returns list of organizational unit types
     responses:
       200:
         body:
@@ -34,7 +41,7 @@ traits:
             schema: !include schemas/outypes-get.schema.json
             example: !include examples/outypes-get.example.json
   post:
-    description: Добавляет тип подразделения
+    description: Adds the type of the organizational unit
     body:
       application/json:
         schema: !include schemas/outype-post.schema.json
@@ -42,7 +49,7 @@ traits:
     is: [postResponse]
   /{uuid}:
     get:
-      description: Возвращает конкретный тип подразделения
+      description: Returns the concrete type of the organizational unit
       responses:
         200:
           body:
@@ -50,13 +57,14 @@ traits:
               schema: !include schemas/outype.schema.json
               example: !include examples/outype-get.example.json
     put:
-      description: Обновляет тип подразделения
+      description: Updates the type of the organizational unit
       body:
         application/json:
           schema: !include schemas/outype-post.schema.json
-          example: !include examples/outype-post.example.json
+          example: !include examples/outype-put.example.json
+      is: [putResponse]
     delete:
-      description: удаляет тип подразделения
+      description: Deletes the concrete type of the organizational unit
       is: [deleteResponse]
 /posts:
   get:

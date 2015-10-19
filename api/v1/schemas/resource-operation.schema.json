@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
+  "description": "Describes the server response after CRUD operations",
   "properties": {
     "success": {
       "type": "boolean"
@@ -10,7 +11,7 @@
     },
     "href": {
       "type": "string",
-      "description": "Reference to the new resource that was created"
+      "description": "Reference to the resource that was created or updated"
     },
     "message": {
       "type": "string"
@@ -18,7 +19,6 @@
   },
   "required": [
     "success",
-    "status",
-    "href"
+    "status"
   ]
 }

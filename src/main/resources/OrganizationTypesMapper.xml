@@ -10,4 +10,32 @@
     <select id="getOrganizationTypes" resultMap="organizationTypeResultMap">
         select * from ref_ou_types
     </select>
+    <select id="getById" resultMap="organizationTypeResultMap">
+        select * 
+        from
+            ref_ou_types
+        where
+            uuid=#{uuid}
+    </select>
+    <insert id="saveOrganizationType" parameterType="mihnayan.ito.employees.model.OrganizationType">
+        insert into 
+            ref_ou_types(uuid, type_name)
+        values
+            (#{uuid}, #{typeName})
+    </insert>
+    <update id="update" parameterType="mihnayan.ito.employees.model.OrganizationType">
+        update
+            ref_ou_types
+        set
+            type_name=#{typeName}
+        where
+            uuid=#{uuid}
+    </update>
+    <delete id="delete">
+        delete
+        from
+            ref_ou_types
+        where
+            uuid=#{uuid}
+    </delete>
 </mapper>
